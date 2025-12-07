@@ -49,7 +49,18 @@ public class CalculadoraPassosTempo extends JFrame {
         btnCalcularPassos.addActionListener(e -> calcularPassos());
         btnCalcularTempo.addActionListener(e -> calcularTempo());
     }
-
-    // coloca o codigo aqui, apaga essa mensagem dps de dar commit
+private double getTamanhoPeCm(String calcado) {
+    switch (calcado) {
+        case "37": return 24.5;
+        case "38": return 25.0;
+        case "39": return 25.5;
+        case "40": return 26.0;
+        case "41": return 27.0;
+        case "42": return 28.0;
+        case "43": return 29.0;
+        case "44": return 30.0;
+        default: return 25.0;
+    }
+}
 
 }
