@@ -3,7 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class CalculadoraPassosTempo extends JFrame {
-    private JComboBox<String> cmbCalcado;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JComboBox<String> cmbCalcado;
     private JTextField txtDistancia;
     private JComboBox<String> cmbUnidade;
     private JLabel lblResultadoPassos;
@@ -63,7 +67,28 @@ public class CalculadoraPassosTempo extends JFrame {
             default: return 25.0;
         }
     }
-
+    
     // coloca o codigo "2)" aqui
+    
+    
+    // Código 4
+    private void calcularTempo() {
+        try {
+            double distancia = getDistanciaMetros();
 
+            // Velocidade média: 5 km/h = 5000 m / 1h=3600s
+            double velocidade = 5000.0 / 3600.0; //vai dar ±1.39
+            double tempoSegundos = distancia / velocidade;
+
+            int horas = (int) (tempoSegundos / 3600);
+            int minutos = (int) ((tempoSegundos % 3600) / 60);
+            int segundos = (int) (tempoSegundos % 60);
+
+            lblResultadoTempo.setText(
+                    String.format("Tempo: %02dh %02dm %02ds", horas, minutos, segundos)
+            );
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Insira valores válidos!");
+        }
+    }
 }
