@@ -110,4 +110,10 @@ public class CalculadoraPassosTempo extends JFrame {
             JOptionPane.showMessageDialog(this, "Insira valores válidos!");
         }
     }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new CalculadoraPassosTempo().setVisible(true);
+        });
+    }
 }
