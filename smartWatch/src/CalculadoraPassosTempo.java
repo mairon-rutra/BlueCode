@@ -69,7 +69,15 @@ public class CalculadoraPassosTempo extends JFrame {
     }
     
     // coloca o codigo "2)" aqui
-    
+    private double getDistanciaMetros() {
+        double distancia = Double.parseDouble(txtDistancia.getText());
+        String unidade = (String) cmbUnidade.getSelectedItem();
+
+        if (unidade.equals("Quilômetros")) {
+            distancia *= 1000;
+        }
+        return distancia;
+    }
     
     // Código 4
     private void calcularTempo() {
