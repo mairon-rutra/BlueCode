@@ -3,9 +3,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class CalculadoraPassosTempo extends JFrame {
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JComboBox<String> cmbCalcado;
     private JTextField txtDistancia;
@@ -78,9 +75,22 @@ public class CalculadoraPassosTempo extends JFrame {
         return distancia;
     }
 
-    //codigo 3 aq
+    private void calcularPassos() {
+        try {
+            String calcado = (String) cmbCalcado.getSelectedItem();
+            double tamanhoPe = getTamanhoPeCm(calcado);
+            double distancia = getDistanciaMetros();
 
-    // Código 4
+            // Cada passo = tamanho do pé + 25 cm (distância entre cada pé)
+            double comprimentoPasso = tamanhoPe + 25.0;
+            double passos = (distancia * 100) / comprimentoPasso;
+
+            lblResultadoPassos.setText("Passos: " + (int) passos);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Insira valores válidos!");
+        }
+    }
+
     private void calcularTempo() {
         try {
             double distancia = getDistanciaMetros();
