@@ -67,8 +67,7 @@ public class CalculadoraPassosTempo extends JFrame {
             default: return 25.0;
         }
     }
-    
-    // coloca o codigo "2)" aqui
+
     private double getDistanciaMetros() {
         double distancia = Double.parseDouble(txtDistancia.getText());
         String unidade = (String) cmbUnidade.getSelectedItem();
@@ -78,7 +77,9 @@ public class CalculadoraPassosTempo extends JFrame {
         }
         return distancia;
     }
-    
+
+    //codigo 3 aq
+
     // Código 4
     private void calcularTempo() {
         try {
